@@ -1,0 +1,228 @@
+/* styles.css */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #2c3e50;
+    padding: 15px;
+    color: white;
+}
+
+.topbar .title {
+    font-size: 24px;
+    color: #1abc9c;
+}
+
+.topbar .user-info {
+    display: flex;
+    align-items: center;
+}
+
+.user-info #username {
+    margin-right: 10px;
+}
+
+.user-info .avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.user-info .username {
+    margin-right: 10px;
+}
+
+.user-info .logout {
+    color: #ecf0f1;
+    text-decoration: none;
+    padding: 5px 10px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    transition: 0.3s;
+}
+
+.user-info .logout:hover {
+    border-color: #ecf0f1;
+}
+
+.sidebar {
+    background-color: #34495e;
+    color: white;
+    width: 200px;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    padding-top: 60px;
+    overflow-y: auto;
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    padding: 10px;
+}
+
+.sidebar ul li a {
+    color: white;
+    text-decoration: none;
+    display: block;
+    padding: 10px;
+    border-left: 3px solid transparent;
+    transition: 0.3s;
+}
+
+.sidebar ul li a:hover,
+.sidebar ul li a.active {
+    background-color: #1abc9c;
+    border-left-color: #1abc9c;
+}
+
+.sidebar .submenu {
+    display: none;
+    list-style-type: none;
+    padding-left: 20px;
+}
+
+.main-content {
+    margin-left: 220px;
+    padding: 20px;
+}
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #2c3e50;
+    padding: 15px;
+    color: white;
+    position: relative;
+    z-index: 100; /* 更高的z-index确保该元素在上方 */
+}
+
+.sidebar {
+    background-color: #34495e;
+    color: white;
+    width: 200px;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    padding-top: 60px;
+    overflow-y: auto;
+    z-index: 10; /* 较低的z-index确保该元素在下方 */
+}
+
+.main-content{
+    body {
+        font-family: Arial, sans-serif;
+        padding: 20px;
+    }
+
+    .container {
+        margin: 15px;
+    }
+    .search-bar {
+        display: flex;
+        align-items: center;
+        margin-bottom: 35px;
+    }
+    .search-bar label {
+        margin-right: 10px;
+    }
+    .search-input {
+        width: 200px;
+        padding: 5px;
+        margin-right: 10px;
+    }
+    .btn-group button {
+        margin-right: 3px;
+        border: none;
+        padding: 7px 14px;
+        color: #fff;
+        cursor: pointer;
+        border-radius: 4px;
+    }
+
+    .btn-search {
+        background-color: #20B2AA;
+    }
+    .btn-add {
+        background-color: #1E90FF;
+    }
+    .btn-edit {
+        background-color: #FFA500;
+    }
+    .btn-delete {
+        background-color: #FF4500;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+
+    }
+    table th, table td {
+        border: 1px solid #ddd;
+        padding: 12px;
+        text-align: center;
+    }
+    table th {
+        background-color: #f2f2f2;
+    }
+
+
+    table, th, td {
+        border: 1px solid #ddd;
+    }
+
+    th, td {
+        text-align: left;
+        padding: 8px;
+    }
+
+    th input[type="checkbox"], td input[type="checkbox"] {
+        margin: 0;
+    }
+
+    .status {
+        padding: 2px 4px;
+        border-radius: 4px;
+    }
+
+    .normal { background-color: blue; color: white; }
+
+    .role {
+        padding: 2px 4px;
+        border-radius: 4px;
+    }
+
+    .admin { background-color: green; color: white; }
+
+    .pagination {
+        display: flex;
+        align-items: center;
+        margin-top: 20px;
+    }
+
+    .pagination span, .pagination input, .pagination select {
+        margin: 0 5px;
+    }
+        thead th:nth-child(1) ,tbody td:nth-child(1){
+          width: 10%;
+        }
+
+        thead th:nth-child(2) ,tbody td:nth-child(2){
+          width: 40%;
+        }
+
+        thead th:nth-child(3) ,tbody td:nth-child(3){
+          width: 50%;
+        }
+
+}

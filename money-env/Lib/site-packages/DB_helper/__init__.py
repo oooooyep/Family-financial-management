@@ -1,0 +1,123 @@
+import sqlite3
+
+def create_db():
+    '''
+Если у вас нет файла БД, то создайте его здесь.
+Функция вернет название файла
+    '''
+    with open('data.db','w'):
+        pass
+
+    return 'data.db'
+
+def _get_connection(file_name):
+    '''
+Подключение к БД
+    '''
+    return sqlite3.connect(file_name)    
+
+class DataBase:
+    def __init__(self, file_name: str):
+        '''
+file_name - Название файла, его можно получить из create_db()
+или передать свое имя
+        '''
+        self.file_name = file_name
+        
+    def create_table(self, table_name: str, columns: str):
+        '''
+Создание таблицы
+table_name - название
+columns - значения в виде "{ЗНАЧЕНИЕ} ТИП (sql), {ЗНАЧЕНИЕ} ТИП (sql)"
+        '''
+        conn = _get_connection(self.file_name)
+        cursor = conn.cursor()
+        
+        cursor.execute(f"""CREATE TABLE {table_name}
+                  ({columns})
+               """)
+        
+        conn.close()
+    
+    def insert_data(self, table_name: str, data: tuple):
+        '''
+Добавление данных в таблицу
+table_name - название
+data - кортеж данных
+        '''
+        conn = _get_connection(self.file_name)
+        cursor = conn.cursor()
+
+        count = len(data)
+
+        values = '?,' * count
+        values = values[:-1]
+
+        cursor.execute(f"""INSERT INTO {table_name}
+                  VALUES ({values})""", data
+               )
+        
+        conn.commit()
+        
+        conn.close()
+    
+
+    def update_data(self, table_name: str, set_name: str, where_name: str, set_value: str, where_value: str):
+        '''
+Обновить данные таблицы
+table_name - название
+set_name - в каком поле сменить
+where_name - по какому полю смотреть
+set_value - готовое значеие
+where_value - значение поля просмотра
+        '''
+        conn = _get_connection(self.file_name)
+        cursor = conn.cursor()
+
+        sql = f"""
+UPDATE {table_name} 
+SET {set_name} = ?
+WHERE {where_name} = ?
+"""
+ 
+        cursor.execute(sql, (set_value, where_value,))
+        conn.commit()
+
+        conn.close()
+    
+    def delete_data(self, table_name: str, where_name: str, value: str):
+        '''
+Удаление данных
+table_name - название
+where_name - по какому полю смотреть
+value - значение в поле
+        '''
+        conn = _get_connection(self.file_name)
+        cursor = conn.cursor()
+
+        sql = f"DELETE FROM {table_name} WHERE {where_name} = ?"
+ 
+        cursor.execute(sql, (value,))
+        conn.commit()
+
+        conn.close()
+
+    
+    def get_data(self, table_name: str):
+        '''
+Получение данных
+table_name - название
+
+вернет list со значениями
+        '''
+        conn = _get_connection(self.file_name)
+        cursor = conn.cursor()
+
+        rows = []
+
+        for row in cursor.execute(f"SELECT rowid, * FROM {table_name} ORDER BY rowid"):
+            rows.append(row)
+        
+        conn.close()
+        
+        return rows

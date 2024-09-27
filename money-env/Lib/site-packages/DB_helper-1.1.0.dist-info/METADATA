@@ -1,0 +1,55 @@
+Metadata-Version: 2.1
+Name: DB-helper
+Version: 1.1.0
+Summary: Модуль для простого использования БД Sqlite3
+Home-page: UNKNOWN
+Author: lioppp
+Author-email: stroganov400@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+
+# Example Package
+> import
+```python
+from DB_helper import DataBase
+db = DataBase(DB_helper.create_table())
+```
+> Create_table
+```python
+db.create_table()
+```
+>> table_name - name
+>> columns - values вЂ‹вЂ‹in the form "{VALUE} TYPE (sql), {VALUE} TYPE (sql)"
+> Add data
+```python
+db.insert_data()
+```
+>> table_name - name
+>> data - tuple dats
+> Update data
+```python
+db.update_data()
+```
+>>table_name - name
+>>set_name - sql
+>>where_name - sql
+>>set_value - sql
+>>where_value - sql
+>Delete data
+```python
+db.delete_data()
+```
+>>table_name - anme
+>>where_name - which field to look at
+>>value - value in field
+>Get data
+```python
+db.get_data()
+```
+>>table_name - name
+>>returned values in list
+

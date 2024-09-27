@@ -1,0 +1,71 @@
+{% extends '边栏.html' %}
+
+{% block title %}支出管理{% endblock %}
+
+{% block link %}
+<link rel="stylesheet" href=" {{ url_for('static',filename='css/用户管理.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/分页栏.css') }}">
+{% endblock %}
+
+{% block content %}
+        <div class="container">
+        <div class="search-bar">
+            <label for="username">用户名/姓名:</label>
+            <input type="text" id="username" class="search-input" placeholder="请输入用户名/姓名">
+            <div class="btn-group">
+                <button class="btn-search">查询</button>
+                <button class="btn-add">新增</button>
+                <button class="btn-edit">修改</button>
+                <button class="btn-delete">删除</button>
+            </div>
+        </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th><input type="checkbox"></th>
+                        <th>编号</th>
+                        <th>用户名</th>
+                        <th>姓名</th>
+                        <th>性别</th>
+                        <th>手机</th>
+                        <th>状态</th>
+                        <th>角色</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for row in users %}
+                    <tr>
+                        <td><input type="checkbox"></td>
+                        <td>{{ row.user_id }}</td>
+                        <td>{{ row.user_name }}</td>
+                        <td>{{ row.true_name }}</td>
+                        <td>
+                        {% if row.sex == 1 %}
+                            <span >男</span>
+                        {% elif row.sex == 0 %}
+                            <span >女</span>
+                        {% endif %}
+                        </td>
+                        <td>{{ row.mobile }}</td>
+                        <td><span class="status normal">正常</span></td>
+                        <td><span class="role admin">
+                            {% if row.role_id == 1 %}
+                            <span class="role admin">管理员</span>
+                            {% elif row.role_id == 2 %}
+                            <span class="role family">家庭成员</span>
+                            {% endif %}
+                        </span></td>
+                    </tr>
+                    {% endfor %}
+                    <!-- 其他行继续 -->
+                </tbody>
+            </table>
+            <div style="text-align: center" class="paginationCover">
+                {{ pagination.links }}
+                <p>共有{{ pagination.total }}条数据</p>
+            </div>
+
+
+        </div>
+
+{% endblock %}

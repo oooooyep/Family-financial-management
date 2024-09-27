@@ -1,0 +1,45 @@
+.pagination {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.paginationCover{
+    margin-top: 50px;
+}
+
+.pagination li {
+    margin: 0 5px;
+}
+
+.pagination a,
+.pagination span {
+    text-decoration: none;
+    color: #0b3861;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.pagination .active {
+    font-weight: bold;
+    color: white;
+    background-color: #007bff;
+}
+
+.pagination .disabled {
+    color: #6c757d;
+}
+
+/* Hover effect */
+.pagination a:hover {
+    background-color: #0056b3;
+    color: white;
+}
+
+/* 隐藏含有特定文本的元素 */
+.paginationCover .pagination a:contains("Previous"),
+.paginationCover .pagination span:contains("(current)") {
+    display: none;
+}

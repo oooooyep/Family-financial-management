@@ -1,0 +1,60 @@
+{% extends '边栏.html' %}
+
+{% block title %}支出管理{% endblock %}
+
+{% block link %}  <link rel="stylesheet" href=" {{ url_for('static',filename='css/主要.css') }}"> {% endblock %}
+
+{% block content %}
+<div class="container">
+    <!-- 本月收入排行 -->
+    <div class="section">
+        <div class="header income">本月收入排行</div>
+        <div class="content">
+            <table>
+                <thead>
+                <tr>
+                    <th>用户名</th>
+                    <th>收入(元)</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for row in income%}
+                <tr>
+                    <td>{{ row.user_name }}</td>
+                    <td>{{ row.total_expense }}</td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- 本月收支情况 -->
+    <div class="section">
+        <div class="header expense">本月收支情况</div>
+        <div class="content">
+            <p>支出：{{ total_income[0]['total_income'] }}</p>
+            <p>收入：{{ total_expense[0]['total_expense'] }} </p>
+        </div>
+        <div class="header consumption">本月消费排行</div>
+        <div class="content">
+            <table>
+                <thead>
+                <tr>
+                    <th>姓名</th>
+                    <th>消费金额(元)</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for row in expenditure%}
+                <tr>
+                    <td>{{ row.user_name }}</td>
+                    <td>{{ row.total_expense }}</td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,181 @@
+/* styles.css */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #2c3e50;
+    padding: 15px;
+    color: white;
+}
+
+.topbar .title {
+    font-size: 24px;
+    color: #1abc9c;
+}
+
+.topbar .user-info {
+    display: flex;
+    align-items: center;
+}
+
+.user-info #username {
+    margin-right: 10px;
+}
+
+.user-info .avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.user-info .username {
+    margin-right: 10px;
+}
+
+.user-info .logout {
+    color: #ecf0f1;
+    text-decoration: none;
+    padding: 5px 10px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    transition: 0.3s;
+}
+
+.user-info .logout:hover {
+    border-color: #ecf0f1;
+}
+
+.sidebar {
+    background-color: #34495e;
+    color: white;
+    width: 200px;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    padding-top: 60px;
+    overflow-y: auto;
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    padding: 10px;
+}
+
+.sidebar ul li a {
+    color: white;
+    text-decoration: none;
+    display: block;
+    padding: 10px;
+    border-left: 3px solid transparent;
+    transition: 0.3s;
+}
+
+.sidebar ul li a:hover,
+.sidebar ul li a.active {
+    background-color: #1abc9c;
+    border-left-color: #1abc9c;
+}
+
+.sidebar .submenu {
+    display: none;
+    list-style-type: none;
+    padding-left: 20px;
+}
+
+.main-content {
+    margin-left: 220px;
+    padding: 20px;
+}
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #2c3e50;
+    padding: 15px;
+    color: white;
+    position: relative;
+    z-index: 100; /* 更高的z-index确保该元素在上方 */
+}
+
+.sidebar {
+    background-color: #34495e;
+    color: white;
+    width: 200px;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    padding-top: 60px;
+    overflow-y: auto;
+    z-index: 10; /* 较低的z-index确保该元素在下方 */
+}
+
+.main-content{
+/* styles.css */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f7f7f7;
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    max-width: 600px;
+    margin: auto;
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form-group input[type="text"], .form-group input[type="password"], .form-group select, .form-group input[type="file"] {
+    width: calc(100% - 24px);
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.form-group input[type="radio"] {
+    margin-right: 5px;
+}
+
+button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    background-color: #009688;
+    cursor: pointer;
+    outline: none;
+}
+
+button[type="button"] {
+    background-color: #d3d3d3;
+    margin-left: 10px;
+}
+
+button:hover {
+    opacity: 0.9;
+}
+}

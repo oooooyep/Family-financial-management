@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/边栏.css') }}">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    {% block link %}
+    {% endblock %}
+</head>
+<body>
+    <!-- 顶栏 -->
+    <div class="topbar">
+        <div class="title">家庭理财收支系统</div>
+        <div class="user-info">
+            当前登录用户：
+            <span class="username">{{ user['true_name'] }}</span>
+            <a href="{{ url_for('logout') }}" class="logout">退出登录</a>
+        </div>
+    </div>
+
+    <!-- 侧边栏 -->
+    <div class="sidebar">
+    <ul>
+        <li>
+            <a class="submenuT" href="#" >系统管理</a>
+            <ul class="submenu show">
+                <li><a href=" {{ url_for('user_manage') }} ">用户系统</a></li>
+                <li><a href=" {{ url_for('pay_manage') }} ">支出管理</a></li>
+            </ul>
+        </li>
+        <li>
+            <a class="submenuT" href="#">用户菜单</a>
+            <ul class="submenu">
+                <li><a href=" {{ url_for('detail') }} ">明细管理</a></li>
+                <li><a href=" {{ url_for('wage') }} ">工资管理</a></li>
+                <li><a href="#">类别报表</a></li>
+            </ul>
+        </li>
+    </ul>
+    </div>
+
+    <div class="main-content">
+        {% block content %}
+        {% endblock %}
+    </div>
+
+    <script>
+        $(document).ready(function(){
+            $('.sidebar ul li a').click(function(){
+                $(this).next('.submenu').slideToggle();
+            });
+        });
+    </script>
+</body>
+</html>

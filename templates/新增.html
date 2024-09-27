@@ -1,0 +1,54 @@
+{% extends '边栏.html' %}
+
+{% block title %}支出管理{% endblock %}
+
+{% block link %}  <link rel="stylesheet" href=" {{ url_for('static',filename='css/新增.css') }}"> {% endblock %}
+
+{% block content %}
+<div class="container">
+        <h2>新增</h2>
+        <form>
+            <div class="form-group">
+                <label for="username">用户名</label>
+                <input type="text" id="username" placeholder="请输入用户名">
+            </div>
+            <div class="form-group">
+                <label for="name">姓名</label>
+                <input type="text" id="name" placeholder="请输入姓名">
+            </div>
+            <div class="form-group">
+                <label>性别</label>
+                <label><input type="radio" name="gender" value="male"> 男</label>
+                <label><input type="radio" name="gender" value="female"> 女</label>
+            </div>
+            <div class="form-group">
+                <label for="password">密码</label>
+                <input type="password" id="password" placeholder="请输入密码">
+            </div>
+            <div class="form-group">
+                <label for="phone">手机号码</label>
+                <input type="text" id="phone" placeholder="请输入手机号码">
+            </div>
+            <div class="form-group">
+                <label for="role">角色</label>
+                <select id="role">
+                    <option value="member">家庭成员</option>
+                    <!-- 其他选项可以在这里添加 -->
+                </select>
+            </div>
+            <div class="form-group">
+                <label>状态</label>
+                <label><input type="radio" name="status" value="active"> 正常</label>
+                <label><input type="radio" name="status" value="inactive"> 禁用</label>
+            </div>
+            <div class="form-group">
+                <label for="avatar">头像</label>
+                <input type="file" id="avatar">
+            </div>
+            <div class="form-group">
+                <button type="submit">保存</button>
+                <button type="button" onclick="window.history.back();">返回</button>
+            </div>
+        </form>
+    </div>
+{% endblock %}

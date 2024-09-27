@@ -1,0 +1,46 @@
+{% extends '边栏.html' %}
+
+{% block title %}支出管理{% endblock %}
+
+{% block link %}
+<link rel="stylesheet" href=" {{ url_for('static',filename='css/支出管理.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/分页栏.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="container">
+<div class="search-bar">
+    <label for="search">名称:</label>
+    <input type="text" id="search" class="search-input" placeholder="请输入名称">
+    <div class="btn-group">
+        <button class="btn-search">查询</button>
+        <button class="btn-add">新增</button>
+        <button class="btn-edit">修改</button>
+        <button class="btn-delete">删除</button>
+    </div>
+</div>
+    <table>
+        <thead>
+            <tr>
+                <th><input type="checkbox"></th>
+                <th>编号</th>
+                <th>名称</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for row in details_type%}
+        <tr>
+            <td><input type="checkbox"></td>
+            <td>{{ row.type_id }}</td>
+            <td>{{ row.type_name }}</td>
+        </tr>
+        {% endfor %}
+
+        </tbody>
+    </table>
+    <div style="text-align: center" class="paginationCover">
+        {{ pagination.links }}
+        <p>共有{{ pagination.total }}条数据</p>
+    </div>
+</div>
+{% endblock %}

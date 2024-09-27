@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>支出管理</title>
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/边栏.css') }}">
+    <link rel="stylesheet" href=" {{ url_for('static',filename='css/主要.css') }}">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    {% block link %}
+    {% endblock %}
+</head>
+<body>
+    <!-- 顶栏 -->
+    <div class="topbar">
+        <div class="title">家庭理财收支系统</div>
+        <div class="user-info">
+            当前登录用户：
+            <span class="username">{{ user['true_name'] }}</span>
+            <a href="{{ url_for('logout') }}" class="logout">退出登录</a>
+        </div>
+    </div>
+
+    <!-- 侧边栏 -->
+    <div class="sidebar">
+    <ul>
+        <li>
+            <a class="submenuT" href="#">用户菜单</a>
+            <ul class="submenu">
+                <li><a href=" {{ url_for('detail') }} ">明细管理</a></li>
+                <li><a href=" {{ url_for('wage') }} ">工资管理</a></li>
+                <li><a href="#">类别报表</a></li>
+            </ul>
+        </li>
+    </ul>
+    </div>
+
+    <div class="main-content">
+        <div class="container">
+    <!-- 本月收入排行 -->
+    <div class="section">
+        <div class="header income">本月收入排行</div>
+        <div class="content">
+            <table>
+                <thead>
+                <tr>
+                    <th>用户名</th>
+                    <th>收入(元)</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for row in income%}
+                <tr>
+                    <td>{{ row.user_name }}</td>
+                    <td>{{ row.total_expense }}</td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- 本月收支情况 -->
+    <div class="section">
+        <div class="header expense">本月收支情况</div>
+        <div class="content">
+            <p>支出：{{ total_income[0]['total_income'] }}</p>
+            <p>收入：{{ total_expense[0]['total_expense'] }} </p>
+        </div>
+        <div class="header consumption">本月消费排行</div>
+        <div class="content">
+            <table>
+                <thead>
+                <tr>
+                    <th>姓名</th>
+                    <th>消费金额(元)</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for row in expenditure%}
+                <tr>
+                    <td>{{ row.user_name }}</td>
+                    <td>{{ row.total_expense }}</td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+    </div>
+
+    <script>
+        $(document).ready(function(){
+            $('.sidebar ul li a').click(function(){
+                $(this).next('.submenu').slideToggle();
+            });
+        });
+    </script>
+</body>
+</html>
